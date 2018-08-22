@@ -68,6 +68,9 @@ site_install ()
 
 #-------------------------- Execution --------------------------------
 
+fin exec composer install
+cd docroot/themes/custom/mytheme && fin exec yarn install
+
 # Project initialization steps
 fix_permissions
 init_settings

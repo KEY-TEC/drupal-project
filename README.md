@@ -40,6 +40,8 @@ Follow [Docksal environment setup instructions](https://docs.docksal.io/en/maste
         - You will get a node_modules folder and a bower_components folder in your theme.
         - If you had renamed your theme you should also change the name in the init script in .docksal/commands
     - initialize local settings and running a site-install via drush
+    - activate the custom theme
+    - enable basic modules like display suite and ui_patterns
     
 4. Point your browser to
 

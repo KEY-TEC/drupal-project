@@ -27,22 +27,38 @@ Follow [Docksal environment setup instructions](https://docs.docksal.io/en/maste
     cd drupal8
     ```
 
-2. Initialize the site
+2. Go to /docroot/sites/default and copy/paste the `default.settings.local.php` as `settings.local.php` to the same directory.
 
-    This will initialize local settings and install the site via drush
+3. Initialize the site
 
     ```
     fin init
     ```
-
-3. Point your browser to
+    This will
+    - run `composer install` to install a drupal 8 with its dependencies, creating a vendor folder.
+    - run `yarn install` in the custom theme folder `mytheme` to setup patternlab and install additional libraries using bower.
+        - You will get a node_modules folder and a bower_components folder in your theme.
+        - If you had renamed your theme you should also change the name in the init script in .docksal/commands
+    - initialize local settings and running a site-install via drush
+    
+4. Point your browser to
 
     ```
     http://drupal8.docksal
     ```
 
+5. If you want to change the name of your theme you need to rename
+    - the theme folder in themes/custom including
+        - [themename].info.yml
+        - [themename].libraries.yml
+        - [themename].theme
+        - [themename].ui_patterns.yml
+    - the drupal `themeFile` setting in `gulpconfig.js`
+    - the `THEME_NAME` setting in .docksal/commands/init
+
 When the automated install is complete the command line output will display the admin username and password.
 
+6. Open the page and login as admin to activate your theme in `Appearance`.
 
 ## More automation with 'fin init'
 

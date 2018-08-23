@@ -11,6 +11,7 @@ set -e
 
 #-------------------------- Settings --------------------------------
 
+THEME_NAME="mytheme"
 # PROJECT_ROOT and DOCROOT are set as env variables in cli
 SITE_DIRECTORY="default"
 DOCROOT_PATH="${PROJECT_ROOT}/${DOCROOT}"
@@ -69,11 +70,15 @@ site_install ()
 #-------------------------- Execution --------------------------------
 
 fin exec composer install
-cd docroot/themes/custom/mytheme && fin exec yarn install
+if [ -d "$DOCROOT_PATH/themes/custom/$THEME_NAME" ]; then
+    cd $DOCROOT_PATH/themes/custom/$THEME_NAME && fin exec yarn install
+fi
 
 # Project initialization steps
 fix_permissions
 init_settings
 time site_install
+
+cd $DOCROOT && fin drush then $THEME_NAME && fin drush cset system.theme default $THEME_NAME
 
 #-------------------------- END: Execution --------------------------------

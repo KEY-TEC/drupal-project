@@ -71,10 +71,9 @@ plugins:
       molecules:
         paths:
           - ../source/_patterns/02-molecules
-          - ../source/_patterns/02-molecules/bar
           - ../source/_patterns/02-molecules/branding
           - ../source/_patterns/02-molecules/caption-block
-          - ../source/_patterns/02-molecules/foo
+          - ../source/_patterns/02-molecules/some-component
       organisms:
         paths:
           - ../source/_patterns/03-organisms

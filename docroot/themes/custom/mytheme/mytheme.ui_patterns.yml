@@ -1,0 +1,25 @@
+some_layout:
+  label: Test Layout
+  use: "@molecules/some-component.twig"
+  variants:
+    large:
+      label: Variant
+      settings:
+        modifier: modifier-a modifier-b
+  settings:
+    modifier:
+      type: token
+      label: Modifier
+    attributes:
+      label: attributes
+      type: attributes
+  fields:
+    headline:
+      type: text
+      label: Headline
+    text:
+      type: text
+      label: Text
+    image:
+      type: image
+      label: Image
